@@ -41,9 +41,9 @@ app.use('/api', apiRoutes);
 
 // Main catchall route -----------------
 // Send the users to the front end -----
-// app.get('*', function(req, res){
-// 	res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
-// });
+app.get('*', function(req, res){
+	res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
+});
 
 // START THE SERVER
 // ================================
