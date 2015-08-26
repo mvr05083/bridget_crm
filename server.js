@@ -40,6 +40,9 @@ app.use(express.static(__dirname + '/public'));
 var apiRoutes = require('./app/routes/api')(app, express);
 app.use('/api', apiRoutes);
 
+var userRoutes = require('./app/routes/users')(app, express);
+app.use('/users', userRoutes);
+
 // Main catchall route -----------------
 // Send the users to the front end -----
 app.get('*', function(req, res){
