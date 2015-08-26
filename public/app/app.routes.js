@@ -12,22 +12,22 @@ angular.module('app.routes', ['ngRoute'])
 		controllerAs : 'login'
 	})
 
-	.when('/users', {
-		templateUrl : 'app/views/pages/users/all.html',
-		controller : 'userController',
-		controllerAs : 'user'
+	.when('/students', {
+		templateUrl : 'app/views/pages/students/all.html',
+		controller : 'studentController',
+		controllerAs : 'student'
 	})
 
-	.when('/users/create', {
-		templateUrl : 'app/views/pages/users/single.html',
-		controller : 'userCreateController',
-		controllerAs: 'user'
+	.when('/students/create', {
+		templateUrl : 'app/views/pages/students/single.html',
+		controller : 'studentCreateController',
+		controllerAs: 'student'
 	})
 
-	.when('/users/:user_id',{
-		templateUrl : 'app/views/pages/users/single.html',
-		controller : 'userEditController',
-		controllerAs : 'user'
+	.when('/students/:student_id',{
+		templateUrl : 'app/views/pages/students/single.html',
+		controller : 'studentEditController',
+		controllerAs : 'student'
 	})
 
 	$locationProvider.html5Mode(true);

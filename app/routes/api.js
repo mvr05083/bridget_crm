@@ -1,4 +1,4 @@
-var User			= require('../models/user');
+var Student			= require('../models/student');
 var Comment			= require('../models/comment');
 var jwt				= require('jsonwebtoken');
 var config 		= require('../../config');
@@ -9,24 +9,24 @@ module.exports = function(app, express){
 	//	=========================
 	var apiRouter = express.Router();
 
-	apiRouter.get('/users', function(req,res){
-		User.find({}, function(err, users){
+	apiRouter.get('/students', function(req,res){
+		Student.find({}, function(err, students){
 			if(err){
 				res.status(500).json(err);
 			}
 
-			if(users.length == 0) {
-				res.json("There are no users!");
+			if(students.length == 0) {
+				res.json("There are no students!");
 			}
 
 			// Return data if no errors
-			res.json(users);
+			res.json(students);
 		})
 	})
 
-	apiRouter.post('/users', function(req, res){
+	apiRouter.post('/students', function(req, res){
 		console.log('Post recieved');
-		var newUser = User({
+		var newStudent = Student({
 				name 				: "Mike Redmond",
 				math 				: {
 					rote 						: 2,
@@ -48,54 +48,54 @@ module.exports = function(app, express){
 				comments : []
 		});
 
-		newUser.save(function(err, user){
+		newStudent.save(function(err, student){
 			if(err) console.log(err);
 
 			res.json({
 				success : true,
-				message : "New user created"
+				message : "New student created"
 			})
 		});
 	})
 
-	apiRouter.get('/users/:user_id', function(req, res){
-		User.findOne({ _id: req.params.user_id })
+	apiRouter.get('/students/:student_id', function(req, res){
+		Student.findOne({ _id: req.params.student_id })
 		.populate('comments')
-		.exec(function(err, user){
+		.exec(function(err, student){
 			if(err) console.log(err);
 
 			res.json({
 				success : true,
-				message : user
+				message : student
 			});
 		});
 	});
 
-	apiRouter.put('/users/:user_id', function(req, res){
-		User.findOneAndUpdate
+	apiRouter.put('/students/:student_id', function(req, res){
+		Student.findOneAndUpdate
 	})
 
 
-	apiRouter.post('/users/:user_id/comment', function(req, res){
-		User.findOne({_id : req.params.user_id}, function(err, user){
+	apiRouter.post('/students/:student_id/comment', function(req, res){
+		Student.findOne({_id : req.params.student_id}, function(err, student){
 			if(err) console.log(err);
 
 			var newComment = new Comment({
-				user_id : req.params.user_id,
+				student_id : req.params.student_id,
 				posted_date : new Date(),
 				incident_date : new Date(),
 				comment_type : "Disciplinary",
 				comment_body : "I have had numerous issues with this student"
 			});
 
-			// save new comment to get _id to insert into user
+			// save new comment to get _id to insert into student
 			newComment.save(function(err, comment){
 				if(err) console.log(err);
 
-				// push the new id to the user comment section
-				user.comments.push(comment);
-				// save the changes to the user
-				user.save(function(err, u){
+				// push the new id to the student comment section
+				student.comments.push(comment);
+				// save the changes to the student
+				student.save(function(err, u){
 					if(err) res.json(err);
 					res.json({
 						success : true,

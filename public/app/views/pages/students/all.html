@@ -1,0 +1,35 @@
+<div class="row text-center">
+	<h1>Students</h1>
+	<p><a href="/students/create" class="btn btn-default"><i class="fa fa-plus-circle"></i> New Student</a></p>
+</div>
+
+
+<div class="jumbotron text-center" ng-show="student.processing">
+	<span class="glyphicon glyphicon-repeat spinner"></span>
+	<p>Loading Students...</p>
+</div>
+
+
+<div class="row">
+	<table class="table table-bordered table-striped small-10 small-offset-1" ng-show="student.students">
+		<thead>
+			<tr>
+				<th>_id</th>
+				<th>Name</th>
+				<th>Student name</th>
+				<th class="col-sm-2"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="person in student.students">
+				<td>{{ person._id }}</td>
+				<td>{{ person.name }}</td>
+				<td>{{ person.username }}</td>
+				<td class="col-sm-2">
+					<a ng-href="/students/{{ person._id}}" class="btn btn-danger"><i class="fa fa-cog"></i> Edit</a>
+					<a ng-href="#" class="btn btn-primary" ng-click="student.deleteStudent(person._id)"><i class="fa fa-trash"></i> Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

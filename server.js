@@ -6,10 +6,11 @@ var app 				= express(); //define our app using express
 var bodyParser 	= require('body-parser'); // get body-parser
 var morgan			= require('morgan'); // used to see requests
 var mongoose 		= require('mongoose'); // for working with the MongoDB
-var User 				= require('./app/models/user'); // custom mongoDB Schema
+// var User 				= require('./app/models/user'); // custom mongoDB Schema
 var jwt 				= require('jsonwebtoken');
 var config 			= require('./config');
 var path 				= require('path');
+var secret 			= config.secret;
 
 
 // 	APP CONFIGURATION --------

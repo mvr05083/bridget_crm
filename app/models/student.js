@@ -2,8 +2,8 @@
 var mongoose 	= require('mongoose');
 var Schema		= mongoose.Schema;
 
-// user schema
-var UserSchema = new Schema({
+// student schema
+var StudentSchema = new Schema({
 	name 					: String,
 	math 				: {
 		rote : Number,
@@ -25,4 +25,4 @@ var UserSchema = new Schema({
 	comments : [{ type: Schema.Types.ObjectId, ref: "Comment"}]
 });
 // return the model
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Student', StudentSchema);
