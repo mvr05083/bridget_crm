@@ -35,5 +35,39 @@ module.exports = function(app, express){
       });
     })
 
+    .get(function(req, res){
+      User.find(function(err, users){
+        if(err){
+          res.json({
+            success : false,
+            message : err
+          });
+        }
+
+        res.json({
+          success : true,
+          message : users
+        });
+      });
+    });
+
+  userRouter.route("/:user_id")
+    .get(function(req, res){
+      User.findById(req.params.user_id, function(err, user){
+        if(err){
+          res.json({
+            success : false,
+            message : err
+          });
+        }
+
+        res.json({
+          success : true,
+          message : user
+        });
+      });
+    })
+  
+
 	return userRouter;
 }
