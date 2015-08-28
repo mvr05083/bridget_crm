@@ -10,7 +10,7 @@ var UserSchema = new Schema({
 
 UserSchema.pre('save', function(next){
   var user = this;
-  
+
   // User's password has not changed
   // do not hash
   if ( !user.isModified('password'))
@@ -26,8 +26,7 @@ UserSchema.pre('save', function(next){
 });
 
 UserSchema.methods.comparePassword = function(password){
-  var user = this;
-
+  var user = this
   return bcrypt.compareSync(password, user.password);
 };
 
