@@ -94,7 +94,7 @@ module.exports = function(app, express){
 					num_id 					: 56,
 					thinking				: 3,
 					two_d_shapes		: 2,
-					three_d_shapes 	: 34,
+					three_d_shapes 	: 34, 
 					one_less				: 12,
 					one_more				: 12
 				},
@@ -132,7 +132,6 @@ module.exports = function(app, express){
 	apiRouter.put('/students/:student_id', function(req, res){
 		Student.findOneAndUpdate
 	})
-
 
 	apiRouter.post('/students/:student_id/comment', function(req, res){
 		Student.findOne({_id : req.params.student_id}, function(err, student){
@@ -189,7 +188,6 @@ module.exports = function(app, express){
 
 			});
 		})
-
 		.get(function(req, res){
 			User.find(function(err, users){
 				if(err){
@@ -210,7 +208,6 @@ module.exports = function(app, express){
 				res.json({ success : true, message : user });
 			});
 		})
-
 		.put(function(req, res){
 			User.findById(req.params.user_id, function(err, user){
 				if(err) res.json({ success: false, message : err })
@@ -226,7 +223,6 @@ module.exports = function(app, express){
 				});
 			});
 		})
-
 		.delete(function(req, res){
 			User.remove({ _id : req.params.user_id }, function(err, user){
 				if(err) res.json({ success : false, message : err })
@@ -234,6 +230,12 @@ module.exports = function(app, express){
 				res.json({ success : true, message : "User deleted." })
 			});
 		})
+
+	// Returns logged in user information
+	// ==============================
+	apiRouter.get('/me', function(req, res){
+		res.json({ success : true, message : req.decoded });
+	})
 
 	return apiRouter;
 }

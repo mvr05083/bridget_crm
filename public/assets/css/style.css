@@ -1,6 +1,32 @@
 html {
        overflow-y: scroll;
 }
+ body{
+   background: #F1EAED;
+ }
+.home-ticket{
+  max-width: 100%;
+  margin-right: auto;
+  margin-left : auto;
+  padding-top: 10px;
+  border-top: 6px #A0A0A0  solid;
+  border-bottom: 3px #CED0CE solid;
+  background: #fff;
+}
+
+.home-ticket.orange{
+  border-top: 6px #DC8037  solid;
+  border-bottom: 3px #F5AC72  solid;
+}
+
+.padding-45{
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+}
+
+.full-width{
+  width: 100%;
+}
 
 #content-views{ position: relative}
 

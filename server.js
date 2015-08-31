@@ -37,11 +37,14 @@ app.use(express.static(__dirname + '/public'));
 
 // REGISTER OUR ROUTES -----------------
 // all of our routes will be prefixed with /api
-var apiRoutes = require('./app/routes/api')(app, express);
+var apiRoutes = require('./app/routes/authenticate')(app, express);
 app.use('/api', apiRoutes);
 
+var studentRoutes = require('./app/routes/students')(app, express);
+app.use('/api', studentRoutes);
+
 var userRoutes = require('./app/routes/users')(app, express);
-app.use('/users', userRoutes);
+app.use('/api', userRoutes);
 
 // Main catchall route -----------------
 // Send the users to the front end -----

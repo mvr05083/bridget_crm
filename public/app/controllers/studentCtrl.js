@@ -42,6 +42,7 @@ angular.module('studentCtrl', [])
 
 		vm.message = '';
 
+    console.log(vm.studentData);
 		Student.create(vm.studentData)
 		.success(function(data){
 			vm.processing = false;
@@ -56,11 +57,16 @@ angular.module('studentCtrl', [])
 	var vm = this;
 
 	vm.type = 'edit';
+	vm.tab = 'math';
 
 	Student.get($routeParams.student_id)
 	.success(function(data){
 		vm.studentData = data;
 	});
+
+	vm.setTab = function(tab){
+		vm.tab = tab;
+	};
 
 	vm.saveStudent = function(){
 		vm.processing = true;
@@ -73,4 +79,19 @@ angular.module('studentCtrl', [])
 			vm.message = data.message;
 		});
 	};
+
+	vm.comment = function(){
+		vm.processing = true;
+		vm.message = '';
+
+		Student.comment($routeParams.student_id, vm.commentData)
+		.success(function(data){
+			vm.processing = false;
+			vm.commentData = {};
+			Student.get($routeParams.student_id)
+			.success(function(data){
+				vm.studentData = data;
+			});
+		})
+	}
 })

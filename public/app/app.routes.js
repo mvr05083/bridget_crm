@@ -4,6 +4,8 @@ angular.module('app.routes', ['ngRoute'])
 	$routeProvider
 	.when('/', {
 		templateUrl : 'app/views/pages/home.html',
+		controller : 'mainController',
+		controllerAs : 'home'
 	})
 
 	.when('/login', {
@@ -25,7 +27,7 @@ angular.module('app.routes', ['ngRoute'])
 	})
 
 	.when('/students/:student_id',{
-		templateUrl : 'app/views/pages/students/single.html',
+		templateUrl : 'app/views/pages/students/edit.html',
 		controller : 'studentEditController',
 		controllerAs : 'student'
 	})

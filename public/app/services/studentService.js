@@ -14,6 +14,7 @@ angular.module('studentService', [])
 
 	//create a student
 	studentFactory.create = function(studentData){
+		console.log("Student data" + studentData);
 		return $http.post('/api/students/', studentData);
 	};
 
@@ -24,7 +25,7 @@ angular.module('studentService', [])
 
 	//create a comment
 	studentFactory.comment = function(id, commentData){
-		return $http.post('/api/students/' + id + '/comment');
+		return $http.post('/api/students/' + id + '/comment', commentData);
 	};
 
 	//delete a student
