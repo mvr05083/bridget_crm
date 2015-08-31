@@ -44,8 +44,9 @@
 		  <section class="top-bar-section">
 		    <!-- Right Nav Section -->
 		    <ul class="right">
-		      <li  ng-show="!home.loggedIn"><a href="/login">Login</a></li>
-		      <li  ng-show="home.loggedIn"><a ng-click="home.doLogout">Logout</a></li>
+		      <li  ng-show="!main.loggedIn"><a href="/login">Login</a></li>
+		      <li  ng-show="main.loggedIn"><a>Hello, {{ main.user.message.name }}</a></li>
+		      <li  ng-show="main.loggedIn"><a ng-click="main.doLogout()">Logout</a></li>
 		    </ul>
 
 		    <!-- Left Nav Section -->

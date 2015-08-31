@@ -8,7 +8,7 @@ angular.module('authService', [])
 //==================================
 .factory('Auth', function($http, $q, AuthToken){
 	var authFactory = {};
-	
+
 	// handle login
 	authFactory.login = function(username, password){
 		return $http.post('/api/authenticate', {
@@ -20,13 +20,13 @@ angular.module('authService', [])
 			return data;
 		});
 	};
-	
+
 	// handle logout
 	authFactory.logout = function(){
 		AuthToken.setToken();
 	};
 	// check if a user is logged in
-	
+
 	authFactory.isLoggedIn = function(){
 		if (AuthToken.getToken()){
 			return true;
@@ -39,10 +39,10 @@ angular.module('authService', [])
 		if(AuthToken.getToken()){
 			return $http.get('/api/me', {cache: true});
 		} else {
-			return $q.reject({message: 'User has no token'});
+			return $q.reject({success : false, message: 'User has no token'});
 		}
 	};
-	
+
 	return authFactory;
 })
 
@@ -52,7 +52,7 @@ angular.module('authService', [])
 //==================================
 .factory('AuthToken', function($window){
 	var authTokenFactory = {};
-	
+
 	// get the token
 	authTokenFactory.getToken = function(){
 		return $window.localStorage.getItem('token');
@@ -65,7 +65,7 @@ angular.module('authService', [])
 			$window.localStorage.removeItem('token');
 		}
 	};
-	
+
 	return authTokenFactory;
 })
 
@@ -74,27 +74,27 @@ angular.module('authService', [])
 //==================================
 .factory('AuthInterceptor', function($q, $location, AuthToken){
 	var interceptorFactory = {};
-	
+
 	//attach the token to every request
 	interceptorFactory.request = function(config){
 		var token = AuthToken.getToken();
-		
+
 		if(token){
 			config.headers['x-access-token'] = token;
 		}
-		
+
 		return config;
 	};
-	
+
 	// redirect if a token doesnt authenticate
 	interceptorFactory.responseError = function(response){
 		if (response.status == 403) {
 			AuthToken.setToken();
 			$location.path('/login');
 		}
-		
+
 		return $q.reject(response);
 	};
-	
+
 	return interceptorFactory;
 });

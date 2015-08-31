@@ -88,6 +88,7 @@ angular.module('studentCtrl', [])
 		.success(function(data){
 			vm.processing = false;
 			vm.commentData = {};
+			
 			Student.get($routeParams.student_id)
 			.success(function(data){
 				vm.studentData = data;
