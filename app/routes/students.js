@@ -74,6 +74,16 @@ module.exports = function(app, express){
 		Student.findOneAndUpdate
 	})
 
+	apiRouter.delete('/students/:student_id', function(req, res){
+		Student.findOne({ _id : req.params.student_id }, function(err, student){
+			student.remove(function(err){
+				if(err) res.json({ success : false, message : err })
+
+				res.json({ success : true, message : 'User ' + student.name + ' removed.' })
+			});
+		});
+	})
+
 	apiRouter.post('/students/:student_id/comment', function(req, res){
 		Student.findOne({_id : req.params.student_id}, function(err, student){
 			if(err) console.log(err);

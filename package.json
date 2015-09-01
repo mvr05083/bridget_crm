@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angularjs-datepicker": "^0.2.9",
     "express": "^4.13.3",
     "jsonwebtoken": "^5.0.5",
     "mongoose": "^4.1.2"

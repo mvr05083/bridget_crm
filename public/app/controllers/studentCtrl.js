@@ -19,6 +19,7 @@ angular.module('studentCtrl', [])
 
 		Student.delete(id)
 		.success(function(data){
+			vm.message = data.message;
 			Student.all()
 			.success(function(data){
 				vm.processing = false;
@@ -88,7 +89,7 @@ angular.module('studentCtrl', [])
 		.success(function(data){
 			vm.processing = false;
 			vm.commentData = {};
-			
+
 			Student.get($routeParams.student_id)
 			.success(function(data){
 				vm.studentData = data;

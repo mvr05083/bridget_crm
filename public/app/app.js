@@ -4,7 +4,8 @@ angular.module('userApp', [
 	'authService',
 	'mainCtrl',
 	'studentCtrl',
-	'studentService'
+	'studentService',
+	'720kb.datepicker'
 ])
 
 .config(function($httpProvider){

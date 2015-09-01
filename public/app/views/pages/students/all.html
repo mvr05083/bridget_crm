@@ -9,24 +9,28 @@
 	<p>Loading Students...</p>
 </div>
 
+<div class="row text-center alert-box success" ng-show="student.message">
+	{{ student.message }}
+</div>
 
 <div class="row">
-	<table class="table table-bordered table-striped small-10 small-offset-1" ng-show="student.students">
+	<table class="table table-bordered table-striped small-12" ng-show="student.students">
 		<thead>
 			<tr>
 				<th>_id</th>
-				<th>Name</th>
 				<th>Student name</th>
-				<th class="col-sm-2"></th>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="person in student.students">
 				<td>{{ person._id }}</td>
 				<td>{{ person.name }}</td>
-				<td>{{ person.username }}</td>
 				<td class="col-sm-2">
 					<a ng-href="/students/{{ person._id}}" class="btn btn-danger"><i class="fa fa-cog"></i> Edit</a>
+				</td>
+				<td>
 					<a ng-href="#" class="btn btn-primary" ng-click="student.deleteStudent(person._id)"><i class="fa fa-trash"></i> Delete</a>
 				</td>
 			</tr>
