@@ -27,6 +27,7 @@ module.exports = function(app, express){
 		// Look for any field except comments
 		var newStudent = new Student({
 			name : req.body.name,
+			dob: req.body.dob,
 			math : {
 				rote : req.body.rote,
 				num_objects : req.body.num_objects,

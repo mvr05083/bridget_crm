@@ -5,6 +5,7 @@ var Schema		= mongoose.Schema;
 // student schema
 var StudentSchema = new Schema({
 	name 					: String,
+	dob						: Date,
 	math 				: {
 		rote : Number,
 		num_objects : Number,

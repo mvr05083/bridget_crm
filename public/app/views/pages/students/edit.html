@@ -7,19 +7,17 @@
       <li class="active">
         <span class="subheader">Name: </span>{{ student.studentData.message.name }}</li>
       <li class="divider"></li>
-      <li></li>
+      <li><span class="subheader">Age: </span> {{student.calculateAge(student.studentData.message.dob)}} </li>
     </ul>
-    <datepicker>
-      <input ng-model="date" type="text" />
-    </datepicker>
+
   </aside>
 
 
   <main class="columns medium-9">
     <ul class="button-group text-center even-3">
-      <li><a ng-click="student.setTab('math')" class="button radius">Math <i class="fa fa-calculator"></i></a></li>
-      <li><a ng-click="student.setTab('ela')" class="button radius">ELA <i class="fa fa-book"></i></a></li>
-      <li><a ng-click="student.setTab('comments')" class="button radius">Comments <i class="fa fa-comments"></i></a></li>
+      <li><a ng-click="student.setTab('math')" class="button small radius">Math <i class="fa fa-calculator"></i></a></li>
+      <li><a ng-click="student.setTab('ela')" class="button small radius">ELA <i class="fa fa-book"></i></a></li>
+      <li><a ng-click="student.setTab('comments')" class="button small radius">Comments <i class="fa fa-comments"></i></a></li>
     </ul>
 
     <!-- MATH -->
@@ -31,7 +29,7 @@
             <p>
               {{ student.studentData.message.math.rote }}
             </p>
-            {{ student.studentData.message.math.rote / 10 * 100 | number : 0}}%
+            {{ student.studentData.message.math.rote / 10 * 100 | number : 0 }}%
             <div class="progress success radius">
               <span class="meter" style="width: {{ student.studentData.message.math.rote / 10 * 100 }}%"></span>
             </div>

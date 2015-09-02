@@ -3,16 +3,22 @@ html {
 }
  body{
    background: #F9F9F9;
-   margin-bottom:-300px;
+   /*margin-bottom:-300px;*/
  }
 
+main{
+  margin-bottom: 150px;
+  /*height:90%;*/
+}
+
  footer{
- 	position: relative;
+ 	position: fixed;
  	bottom: 0;
   height: 200px;
  }
 
  @media (max-height:800px){
+  main { margin-bottom : 100px; }
   footer { position: static; }
  	header { padding-top:40px; }
  }

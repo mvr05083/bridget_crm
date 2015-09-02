@@ -1,99 +1,105 @@
 angular.module('studentCtrl', [])
 
-.controller('studentController', function(Student){
+.controller('studentController', function(Student) {
 
-	var vm = this;
+  var vm = this;
 
-	vm.processing = true;
+  vm.processing = true;
+  // Automatically loads all the students on initial view load
+  Student.all()
+    .success(function(data) {
+      vm.processing = false;
+      vm.students = data;
+    });
 
-	// Automatically loads all the students on initial view load
-	Student.all()
-		.success(function(data){
-			 vm.processing = false;
-			 vm.students = data;
-	});
 
-	// Called when delete is called
-	vm.deleteStudent = function(id){
-		vm.processing = true;
+  // Called when delete is called
+  vm.deleteStudent = function(id) {
+    vm.processing = true;
 
-		Student.delete(id)
-		.success(function(data){
-			vm.message = data.message;
-			Student.all()
-			.success(function(data){
-				vm.processing = false;
-				vm.students = data;
-			});
-		});
-	};
+    Student.delete(id)
+      .success(function(data) {
+        vm.message = data.message;
+        Student.all()
+          .success(function(data) {
+            vm.processing = false;
+            vm.students = data;
+          });
+      });
+  };
 
 })
 
-.controller('studentCreateController', function(Student){
+.controller('studentCreateController', function(Student) {
 
-	var vm = this;
+  var vm = this;
 
-	// variable used to display info in the view
-	vm.type = 'create';
+  // variable used to display info in the view
+  vm.type = 'create';
 
-	vm.saveStudent = function(){
+  vm.saveStudent = function() {
 
-		vm.processing = true;
+    vm.processing = true;
 
-		vm.message = '';
+    vm.message = '';
 
     console.log(vm.studentData);
-		Student.create(vm.studentData)
-		.success(function(data){
-			vm.processing = false;
-			vm.studentData = {};
-			vm.message = data.message;
-		});
-	};
+    Student.create(vm.studentData)
+      .success(function(data) {
+        vm.processing = false;
+        vm.studentData = {};
+        vm.message = data.message;
+      });
+  };
 
 })
 
-.controller('studentEditController', function(Student, $routeParams){
-	var vm = this;
+.controller('studentEditController', function(Student, $routeParams) {
+  var vm = this;
 
-	vm.type = 'edit';
-	vm.tab = 'math';
+  vm.type = 'edit';
+  vm.tab = 'math';
 
-	Student.get($routeParams.student_id)
-	.success(function(data){
-		vm.studentData = data;
-	});
+  Student.get($routeParams.student_id)
+    .success(function(data) {
+      vm.studentData = data;
+    });
 
-	vm.setTab = function(tab){
-		vm.tab = tab;
-	};
+  vm.calculateAge = function(birthday) { // pass in player.dateOfBirth
+    var ageDifMs = Date.now() - new Date(birthday);
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970) + " years, " + Math.abs(ageDate.getMonth() - 12) + " months";
+  };
 
-	vm.saveStudent = function(){
-		vm.processing = true;
-		vm.message = '';
+  vm.setTab = function(tab) {
+    vm.tab = tab;
+  };
 
-		Student.update($routeParams.student_id, vm.studentData)
-		.success(function(data){
-			vm.processing = false;
-			vm.studentData = {};
-			vm.message = data.message;
-		});
-	};
+  vm.saveStudent = function() {
+    vm.processing = true;
+    vm.message = '';
 
-	vm.comment = function(){
-		vm.processing = true;
-		vm.message = '';
+    Student.update($routeParams.student_id, vm.studentData)
+      .success(function(data) {
+        vm.processing = false;
+        vm.studentData = {};
+        vm.message = data.message;
+      });
+  };
 
-		Student.comment($routeParams.student_id, vm.commentData)
-		.success(function(data){
-			vm.processing = false;
-			vm.commentData = {};
+  vm.comment = function() {
+    vm.processing = true;
+    vm.message = '';
 
-			Student.get($routeParams.student_id)
-			.success(function(data){
-				vm.studentData = data;
-			});
-		})
-	}
+    Student.comment($routeParams.student_id, vm.commentData)
+      .success(function(data) {
+        vm.processing = false;
+        vm.commentData = {};
+
+        Student.get($routeParams.student_id)
+          .success(function(data) {
+            vm.studentData = data;
+          });
+      })
+  }
 })

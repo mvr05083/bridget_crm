@@ -1,0 +1,18 @@
+<div class="row padding-45">
+
+  <form class="profile-card columns small-12 medium-6 medium-offset-3" ng-submit="student.saveStudent()">
+    <h3 class="subheader">Add New Student</h3>
+    <label>Name:
+      <input class="radius" type="text" ng-model="student.studentData.name" name="name" value="">
+    </label>
+    <label>Date of birth:
+      <datepicker>
+        <input class="radius" ng-model="student.studentData.dob" type="text" />
+      </datepicker>
+    </label>
+    <button type="submit" class="button radius success" name="button">Add Student</button>
+  </form>
+  <div class="row" ng-show="student.message">
+    {{ student.message }}
+  </div>
+</div>
