@@ -95,9 +95,14 @@ angular.module('studentCtrl', [])
     Student.update($routeParams.student_id, vm.studentData)
       .success(function(data) {
         vm.processing = false;
-        vm.studentData = {};
         vm.message = data.message;
-      });
+
+        Student.get($routeParams.student_id)
+          .success(function(data) {
+            vm.studentData = data;
+            vm.toggleEdit();
+          });
+      })
   };
 
   vm.comment = function() {
