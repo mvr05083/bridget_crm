@@ -61,13 +61,12 @@ angular.module('studentCtrl', [])
 .controller('studentEditController', function(Student, $routeParams) {
   var vm = this;
 
-  vm.type = 'edit';
-  vm.tab = 'math';
   vm.edit = false;
+  vm.student_id = $routeParams.student_id;
 
   Student.get($routeParams.student_id)
     .success(function(data) {
-      vm.studentData = data;
+      vm.studentData = data.message;
     });
 
   vm.toggleEdit = function() {
@@ -99,7 +98,7 @@ angular.module('studentCtrl', [])
 
         Student.get($routeParams.student_id)
           .success(function(data) {
-            vm.studentData = data;
+            vm.studentData = data.message;
             vm.toggleEdit();
           });
       })

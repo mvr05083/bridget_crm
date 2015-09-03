@@ -72,23 +72,22 @@ module.exports = function(app, express){
 	});
 
 	apiRouter.put('/students/:student_id', function(req, res){
-		Student.findOne({ _id: req.params.student_id })
+		Student.findOneAndUpdate({ _id: req.params.student_id }, req.body)
 		.populate('comments')
 		.exec(function(err, student){
 			if(err) console.log(err);
 
-			student.math.rote = req.body.rote;
-
-
-			student.save(function(err, stu){
-				if(err) console.log(err);
+			// student.math = req.body.math;
+			//
+			//
+			// student.save(function(err, stu){
+			// 	if(err) console.log(err);
 
 				res.json({
 					success : true,
-					message : "New student created",
-					student : stu
+					message : "Student updated!"
 				})
-			});
+			// });
 		});
 	})
 

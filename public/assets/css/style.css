@@ -88,6 +88,9 @@ main{
  .button{
    padding: 1rem 1rem 1.0625rem 1rem;
  }
+ .button.small{
+  padding : 0.875rem 1rem 0.9375rem 1rem;
+ }
 
 .home-ticket{
   max-width: 100%;

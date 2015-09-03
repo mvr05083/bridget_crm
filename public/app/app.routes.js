@@ -26,8 +26,20 @@ angular.module('app.routes', ['ngRoute'])
     controllerAs: 'student'
   })
 
-  .when('/students/:student_id', {
-    templateUrl: 'app/views/pages/students/edit.html',
+  .when('/students/:student_id/math', {
+    templateUrl: 'app/views/pages/students/math.html',
+    controller: 'studentEditController',
+    controllerAs: 'student'
+  })
+
+  .when('/students/:student_id/ela', {
+    templateUrl: 'app/views/pages/students/ela.html',
+    controller: 'studentEditController',
+    controllerAs: 'student'
+  })
+
+  .when('/students/:student_id/comment', {
+    templateUrl: 'app/views/pages/students/comment.html',
     controller: 'studentEditController',
     controllerAs: 'student'
   })
