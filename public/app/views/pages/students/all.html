@@ -28,7 +28,7 @@
 				<th></th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody ng-if="student.students">
 			<tr ng-repeat="person in student.students | filter : student.query | orderBy : person.name">
 				<td>{{ person._id }}</td>
 				<td>{{ person.name }}</td>

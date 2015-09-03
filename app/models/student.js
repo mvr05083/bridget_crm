@@ -25,5 +25,6 @@ var StudentSchema = new Schema({
 	},
 	comments : [{ type: Schema.Types.ObjectId, ref: "Comment"}]
 });
+
 // return the model
 module.exports = mongoose.model('Student', StudentSchema);

@@ -79,8 +79,10 @@ module.exports = function(app, express){
 		Student.findOne({ _id : req.params.student_id }, function(err, student){
 			student.remove(function(err){
 				if(err) res.json({ success : false, message : err })
+				Comment.remove({ student_id : req.params.student_id }, function(err){
+					res.json({ success : true, message : 'User ' + student.name + ' removed.' })
+				})
 
-				res.json({ success : true, message : 'User ' + student.name + ' removed.' })
 			});
 		});
 	})

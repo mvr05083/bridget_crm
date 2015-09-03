@@ -7,7 +7,12 @@
       <li class="active">
         <span class="subheader">Name: </span>{{ student.studentData.message.name }}</li>
       <li class="divider"></li>
-      <li><span class="subheader">Age: </span> {{student.calculateAge(student.studentData.message.dob)}} </li>
+      <li>
+        <span class="subheader">Age: </span> {{student.calculateAge(student.studentData.message.dob)}} </li>
+      <li class="divider"></li>
+      <li>
+        <button ng-click="student.toggleEdit()" class="button secondary small radius" type="button" name="button">Edit</button>
+      </li>
     </ul>
 
   </aside>
@@ -22,140 +27,141 @@
 
     <!-- MATH -->
     <div class="small-12" ng-show="student.tab == 'math'">
-      <ul class="small-block-grid-2 medium-block-grid-3">
-        <li>
-          <div class="home-ticket text-center">
-            <h4 class="subheader">ROTE</h4>
-            <p>
-              {{ student.studentData.message.math.rote }}
-            </p>
-            {{ student.studentData.message.math.rote / 10 * 100 | number : 0 }}%
-            <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.message.math.rote / 10 * 100 }}%"></span>
+      <form class="" ng-submit="student.saveStudent()">
+        {{ student.message }}
+        <ul class="small-block-grid-2 medium-block-grid-3">
+          <li>
+            <div class="home-ticket text-center">
+              <h4 class="subheader">ROTE</h4>
+              <p>
+                <span ng-hide="student.edit == true">{{ student.studentData.message.math.rote }}</span>
+                <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.rote" name="name" value="">
+              </p>
+              {{ student.studentData.message.math.rote / 10 * 100 | number : 0 }}%
+              <div class="progress success radius">
+                <span class="meter" style="width: {{ student.studentData.message.math.rote / 10 * 100 }}%"></span>
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="home-ticket text-center">
-            <h4 class="subheader">Number of Objects</h4>
-            <p>
-              {{ student.studentData.message.math.num_objects }}
-            </p>
-            {{ student.studentData.message.math.num_objects / 36 * 100 | number : 0}}%
-            <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.message.math.num_objects / 36 * 100 }}%"></span>
+          </li>
+          <li>
+            <div class="home-ticket text-center">
+              <h4 class="subheader">Number of Objects</h4>
+              <p>
+                {{ student.studentData.message.math.num_objects }}
+              </p>
+              {{ student.studentData.message.math.num_objects / 36 * 100 | number : 0}}%
+              <div class="progress success radius">
+                <span class="meter" style="width: {{ student.studentData.message.math.num_objects / 36 * 100 }}%"></span>
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="home-ticket text-center">
-            <h4 class="subheader">Fluent To</h4>
-            <p>
-              {{ student.studentData.message.math.fluent_to }}
-            </p>
-            {{ student.studentData.message.math.fluent_to / 100 * 100 | number : 0}}%
-            <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.message.math.fluent_to / 100 * 100 }}%"></span>
+          </li>
+          <li>
+            <div class="home-ticket text-center">
+              <h4 class="subheader">Fluent To</h4>
+              <p>
+                {{ student.studentData.message.math.fluent_to }}
+              </p>
+              {{ student.studentData.message.math.fluent_to / 100 * 100 | number : 0}}%
+              <div class="progress success radius">
+                <span class="meter" style="width: {{ student.studentData.message.math.fluent_to / 100 * 100 }}%"></span>
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="home-ticket text-center">
-            <h4 class="subheader">Patterns</h4>
-            <p>
-              {{ student.studentData.message.math.patterns }}
-            </p>
-            {{ student.studentData.message.math.patterns / 10 * 100 | number : 0 }}%
-            <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.message.math.patterns / 10 * 100 }}%"></span>
+          </li>
+          <li>
+            <div class="home-ticket text-center">
+              <h4 class="subheader">Patterns</h4>
+              <p>
+                {{ student.studentData.message.math.patterns }}
+              </p>
+              {{ student.studentData.message.math.patterns / 10 * 100 | number : 0 }}%
+              <div class="progress success radius">
+                <span class="meter" style="width: {{ student.studentData.message.math.patterns / 10 * 100 }}%"></span>
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="home-ticket text-center">
-            <h4 class="subheader">Numbers Identified</h4>
-            <p>
-              {{ student.studentData.message.math.num_id }}
-            </p>
-            {{ student.studentData.message.math.num_id / 95 * 100 | number : 0 }}%
-            <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.message.math.num_id / 95 * 100 }}%"></span>
+          </li>
+          <li>
+            <div class="home-ticket text-center">
+              <h4 class="subheader">Numbers Identified</h4>
+              <p>
+                {{ student.studentData.message.math.num_id }}
+              </p>
+              {{ student.studentData.message.math.num_id / 95 * 100 | number : 0 }}%
+              <div class="progress success radius">
+                <span class="meter" style="width: {{ student.studentData.message.math.num_id / 95 * 100 }}%"></span>
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="home-ticket text-center">
-            <h4 class="subheader">Thinking</h4>
-            <p>
-              {{ student.studentData.message.math.thinking }}
-            </p>
-            {{ student.studentData.message.math.thinking / 100 * 100 | number : 0}}%
-            <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.message.math.thinking / 100 * 100 }}%"></span>
+          </li>
+          <li>
+            <div class="home-ticket text-center">
+              <h4 class="subheader">Thinking</h4>
+              <p>
+                {{ student.studentData.message.math.thinking }}
+              </p>
+              {{ student.studentData.message.math.thinking / 100 * 100 | number : 0}}%
+              <div class="progress success radius">
+                <span class="meter" style="width: {{ student.studentData.message.math.thinking / 100 * 100 }}%"></span>
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="home-ticket text-center">
-            <h4 class="subheader">2D Shapes</h4>
-            <p>
-              {{ student.studentData.message.math.two_d_shapes }}
-            </p>
-            {{ student.studentData.message.math.two_d_shapes / 10 * 100 | number : 0 }}%
-            <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.message.math.two_d_shapes / 10 * 100 }}%"></span>
+          </li>
+          <li>
+            <div class="home-ticket text-center">
+              <h4 class="subheader">2D Shapes</h4>
+              <p>
+                {{ student.studentData.message.math.two_d_shapes }}
+              </p>
+              {{ student.studentData.message.math.two_d_shapes / 10 * 100 | number : 0 }}%
+              <div class="progress success radius">
+                <span class="meter" style="width: {{ student.studentData.message.math.two_d_shapes / 10 * 100 }}%"></span>
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="home-ticket text-center">
-            <h4 class="subheader">3D Shapes</h4>
-            <p>
-              {{ student.studentData.message.math.three_d_shapes }}
-            </p>
-            {{ student.studentData.message.math.three_d_shapes / 36 * 100 | number : 0 }}%
-            <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.message.math.three_d_shapes / 36 * 100 }}%"></span>
+          </li>
+          <li>
+            <div class="home-ticket text-center">
+              <h4 class="subheader">3D Shapes</h4>
+              <p>
+                {{ student.studentData.message.math.three_d_shapes }}
+              </p>
+              {{ student.studentData.message.math.three_d_shapes / 36 * 100 | number : 0 }}%
+              <div class="progress success radius">
+                <span class="meter" style="width: {{ student.studentData.message.math.three_d_shapes / 36 * 100 }}%"></span>
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="home-ticket text-center">
-            <h4 class="subheader">One Less</h4>
-            <p>
-              {{ student.studentData.message.math.one_less }}
-            </p>
-            {{ student.studentData.message.math.one_less / 100 * 100 | number : 0}}%
-            <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.message.math.one_less / 100 * 100 }}%"></span>
+          </li>
+          <li>
+            <div class="home-ticket text-center">
+              <h4 class="subheader">One Less</h4>
+              <p>
+                {{ student.studentData.message.math.one_less }}
+              </p>
+              {{ student.studentData.message.math.one_less / 100 * 100 | number : 0}}%
+              <div class="progress success radius">
+                <span class="meter" style="width: {{ student.studentData.message.math.one_less / 100 * 100 }}%"></span>
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <div class="home-ticket text-center">
-            <h4 class="subheader">One More</h4>
-            <p>
-              {{ student.studentData.message.math.one_more }}
-            </p>
-            {{ student.studentData.message.math.one_more / 100 * 100 | number : 0 }}%
-            <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.message.math.one_more / 100 * 100 }}%"></span>
+          </li>
+          <li>
+            <div class="home-ticket text-center">
+              <h4 class="subheader">One More</h4>
+              <p>
+                {{ student.studentData.message.math.one_more }}
+              </p>
+              {{ student.studentData.message.math.one_more / 100 * 100 | number : 0 }}%
+              <div class="progress success radius">
+                <span class="meter" style="width: {{ student.studentData.message.math.one_more / 100 * 100 }}%"></span>
+              </div>
             </div>
-          </div>
-        </li>
-        <li></li>
-        <li></li>
-        <li>
-          <button ng-show="student.tab == 'math'" type="submit" name="button">Update Math</button>
-        </li>
-      </ul>
+          </li>
+        </ul>
+        <button ng-show="student.tab == 'math'" type="submit" name="button">Update Math</button>
+      </form>
     </div>
 
 
     <!-- ELA -->
-    <form class="" ng-submit="student.saveStudent()">
-      <div class="small-12">
-        <ul class="small-block-grid-2 medium-block-grid-3" ng-show="student.tab == 'ela'">
+
+    <div class="small-12" ng-show="student.tab == 'ela'">
+      <form class="" ng-submit="student.saveStudent()">
+        <ul class="small-block-grid-2 medium-block-grid-3">
           <li>
             <div class="home-ticket orange text-center radius">
               <h4 class="subheader">Letters</h4>
@@ -192,14 +198,12 @@
               </div>
             </div>
           </li>
-          <li>
-            <button ng-show="student.tab == 'ela'" type="submit" name="button">Update ELA</button>
-          </li>
         </ul>
+        <button ng-show="student.tab == 'ela'" type="submit" name="button">Update ELA</button>
+      </form>
+    </div>
 
-      </div>
 
-    </form>
 
     <!-- COMMENTS -->
     <div class="small-12" ng-show="student.tab == 'comments'">

@@ -9,7 +9,11 @@ angular.module('studentCtrl', [])
   Student.all()
     .success(function(data) {
       vm.processing = false;
-      vm.students = data;
+      if (data.length > 0) {
+        vm.students = data;
+      } else {
+        vm.students = false;
+      }
     });
 
 
@@ -59,16 +63,25 @@ angular.module('studentCtrl', [])
 
   vm.type = 'edit';
   vm.tab = 'math';
+  vm.edit = false;
 
   Student.get($routeParams.student_id)
     .success(function(data) {
       vm.studentData = data;
     });
 
+  vm.toggleEdit = function() {
+    if (vm.edit == true)
+      vm.edit = false;
+    else
+      vm.edit = true;
+  };
+
   vm.calculateAge = function(birthday) { // pass in player.dateOfBirth
     var ageDifMs = Date.now() - new Date(birthday);
     var ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970) + " years, " + Math.abs(ageDate.getMonth() - 12) + " months";
+    // return ageDate.getFullYear() + " " + ageDate.getMonth();
+    return Math.abs(ageDate.getUTCFullYear() - 1970) + " years, " + (ageDate.getMonth() + 1) + " months";
   };
 
   vm.setTab = function(tab) {
