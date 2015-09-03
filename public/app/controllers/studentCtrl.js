@@ -115,7 +115,7 @@ angular.module('studentCtrl', [])
 
         Student.get($routeParams.student_id)
           .success(function(data) {
-            vm.studentData = data;
+            vm.studentData = data.message;
           });
       })
   }
