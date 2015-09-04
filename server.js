@@ -10,6 +10,7 @@ var mongoose 		= require('mongoose'); // for working with the MongoDB
 var jwt 				= require('jsonwebtoken');
 var config 			= require('./config');
 var path 				= require('path');
+var http				= require('http');
 var secret 			= config.secret;
 
 
@@ -55,4 +56,15 @@ app.get('*', function(req, res){
 // START THE SERVER
 // ================================
 app.listen(config.port);
+app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+
+app.set('port', config.port);
+app.set('ip', config.ip);
+
+
+http.createServer(app).listen(app.get('port') ,app.get('ip'), function () {
+    console.log("✔ Express server listening at %s:%d ", app.get('ip'),app.get('port'));
+    server();
+});
+
 console.log('Magic happens on port ' + config.port);
