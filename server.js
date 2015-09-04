@@ -54,9 +54,7 @@ app.get('*', function(req, res){
 });
 
 // START THE SERVER
-// ================================
-app.listen(config.port);
-app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+// ===============================
 
 app.set('port', config.port);
 app.set('ip', config.ip);
