@@ -10,7 +10,10 @@ var mongoose 		= require('mongoose'); // for working with the MongoDB
 var jwt 				= require('jsonwebtoken');
 var config 			= require('./config');
 var path 				= require('path');
+<<<<<<< HEAD
 var http				= require('http');
+=======
+>>>>>>> 589d63a1ba52fc9190f7477b84b707509411a004
 var secret 			= config.secret;
 
 
@@ -53,9 +56,8 @@ app.get('*', function(req, res){
 	res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
 });
 
-// START THE SERVER
-// ===============================
 
+// START THE SERVER
 app.set('port', config.port);
 app.set('ip', config.ip);
 
@@ -64,5 +66,3 @@ http.createServer(app).listen(app.get('port') ,app.get('ip'), function () {
     console.log("✔ Express server listening at %s:%d ", app.get('ip'),app.get('port'));
     // server();
 });
-
-console.log('Magic happens on port ' + config.port);
