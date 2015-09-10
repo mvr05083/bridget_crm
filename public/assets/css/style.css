@@ -14,7 +14,7 @@ main {
   margin: 0 auto -175px;
 }
 footer, .push {
-  height: 175px;
+  height: 250px;
 }
 @media (max-height:800px) {
   main {

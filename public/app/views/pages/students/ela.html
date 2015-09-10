@@ -37,9 +37,9 @@
               <span ng-hide="student.edit == true">{{ student.studentData.ela.letters }}</span>
               <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.ela.letters" name="name" value="">
             </p>
-            {{ student.studentData.ela.letters / 10 * 100 | number : 0}}%
+            {{ student.studentData.ela.letters / 52 * 100 | number : 0}}%
             <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.ela.letters / 10 * 100 }}%"></span>
+              <span class="meter" style="width: {{ student.studentData.ela.letters / 52 * 100 }}%"></span>
             </div>
           </div>
         </li>
@@ -50,9 +50,9 @@
               <span ng-hide="student.edit == true">{{ student.studentData.ela.Sounds }}</span>
               <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.ela.Sounds" name="name" value="">
             </p>
-            {{ student.studentData.ela.Sounds / 36 * 100 | number : 0}}%
+            {{ student.studentData.ela.Sounds / 26 * 100 | number : 0}}%
             <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.ela.Sounds / 36 * 100 }}%"></span>
+              <span class="meter" style="width: {{ student.studentData.ela.Sounds / 26 * 100 }}%"></span>
             </div>
           </div>
         </li>
@@ -63,9 +63,35 @@
               <span ng-hide="student.edit == true">{{ student.studentData.ela.reading_level }}</span>
               <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.ela.reading_level" name="name" value="">
             </p>
-            {{ student.studentData.ela.reading_level / 100 * 100 | number : 0}}%
+            <br>
             <div class="progress success radius">
-              <span class="meter" style="width: {{ student.studentData.ela.reading_level / 100 * 100 }}%"></span>
+              <span class="meter" style="width: 0%"></span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="home-ticket orange text-center">
+            <h4 class="subheader">Kindergarten Sight Words</h4>
+            <p>
+              <span ng-hide="student.edit == true">{{ student.studentData.ela.k_sight_words }}</span>
+              <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.ela.k_sight_words" name="name" value="">
+            </p>
+            {{ student.studentData.ela.k_sight_words / 25 * 100 | number : 0}}%
+            <div class="progress success radius">
+              <span class="meter" style="width: {{ student.studentData.ela.k_sight_words / 25 * 100 }}%"></span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="home-ticket orange text-center">
+            <h4 class="subheader">First Grade Sight Words</h4>
+            <p>
+              <span ng-hide="student.edit == true">{{ student.studentData.ela.f_sight_words }}</span>
+              <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.ela.f_sight_words" name="name" value="">
+            </p>
+            {{ student.studentData.ela.f_sight_words / 75 * 100 | number : 0}}%
+            <div class="progress success radius">
+              <span class="meter" style="width: {{ student.studentData.ela.f_sight_words / 75 * 100 }}%"></span>
             </div>
           </div>
         </li>

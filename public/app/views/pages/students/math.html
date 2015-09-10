@@ -39,9 +39,9 @@
                 <span ng-hide="student.edit == true">{{ student.studentData.math.rote }}</span>
                 <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.math.rote" name="name" value="">
               </p>
-              {{ student.studentData.math.rote / 10 * 100 | number : 0 }}%
+              {{ student.studentData.math.rote / 100 * 100 | number : 0 }}%
               <div class="progress success radius">
-                <span class="meter" style="width: {{ student.studentData.math.rote / 10 * 100 }}%"></span>
+                <span class="meter" style="width: {{ student.studentData.math.rote / 100 * 100 }}%"></span>
               </div>
             </div>
           </li>
@@ -52,9 +52,9 @@
                 <span ng-hide="student.edit == true">{{ student.studentData.math.num_objects }}</span>
                 <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.math.num_objects" name="name" value="">
               </p>
-              {{ student.studentData.math.num_objects / 36 * 100 | number : 0}}%
+              {{ student.studentData.math.num_objects / 32 * 100 | number : 0}}%
               <div class="progress success radius">
-                <span class="meter" style="width: {{ student.studentData.math.num_objects / 36 * 100 }}%"></span>
+                <span class="meter" style="width: {{ student.studentData.math.num_objects / 32 * 100 }}%"></span>
               </div>
             </div>
           </li>
@@ -65,9 +65,9 @@
                 <span ng-hide="student.edit == true">{{ student.studentData.math.fluent_to }}</span>
                 <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.math.fluent_to" name="name" value="">
               </p>
-              {{ student.studentData.math.fluent_to / 100 * 100 | number : 0}}%
+              {{ student.studentData.math.fluent_to / 5 * 100 | number : 0}}%
               <div class="progress success radius">
-                <span class="meter" style="width: {{ student.studentData.math.fluent_to / 100 * 100 }}%"></span>
+                <span class="meter" style="width: {{ student.studentData.math.fluent_to / 5 * 100 }}%"></span>
               </div>
             </div>
           </li>
@@ -78,9 +78,9 @@
                 <span ng-hide="student.edit == true">{{ student.studentData.math.patterns }}</span>
                 <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.math.patterns" name="name" value="">
               </p>
-              {{ student.studentData.math.patterns / 10 * 100 | number : 0 }}%
+              {{ student.studentData.math.patterns / 1 * 100 | number : 0 }}%
               <div class="progress success radius">
-                <span class="meter" style="width: {{ student.studentData.math.patterns / 10 * 100 }}%"></span>
+                <span class="meter" style="width: {{ student.studentData.math.patterns / 1 * 100 }}%"></span>
               </div>
             </div>
           </li>
@@ -91,9 +91,9 @@
                 <span ng-hide="student.edit == true">{{ student.studentData.math.num_id }}</span>
                 <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.math.num_id" name="name" value="">
               </p>
-              {{ student.studentData.math.num_id / 95 * 100 | number : 0 }}%
+              {{ student.studentData.math.num_id / 20 * 100 | number : 0 }}%
               <div class="progress success radius">
-                <span class="meter" style="width: {{ student.studentData.math.num_id / 95 * 100 }}%"></span>
+                <span class="meter" style="width: {{ student.studentData.math.num_id / 20 * 100 }}%"></span>
               </div>
             </div>
           </li>
@@ -104,9 +104,9 @@
                 <span ng-hide="student.edit == true">{{ student.studentData.math.thinking }}</span>
                 <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.math.thinking" name="name" value="">
               </p>
-              {{ student.studentData.math.thinking / 100 * 100 | number : 0}}%
+              {{ student.studentData.math.thinking / 3 * 100 | number : 0}}%
               <div class="progress success radius">
-                <span class="meter" style="width: {{ student.studentData.math.thinking / 100 * 100 }}%"></span>
+                <span class="meter" style="width: {{ student.studentData.math.thinking / 3 * 100 }}%"></span>
               </div>
             </div>
           </li>
@@ -117,9 +117,9 @@
                 <span ng-hide="student.edit == true">{{ student.studentData.math.two_d_shapes }}</span>
                 <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.math.two_d_shapes" name="name" value="">
               </p>
-              {{ student.studentData.math.two_d_shapes / 10 * 100 | number : 0 }}%
+              {{ student.studentData.math.two_d_shapes / 5 * 100 | number : 0 }}%
               <div class="progress success radius">
-                <span class="meter" style="width: {{ student.studentData.math.two_d_shapes / 10 * 100 }}%"></span>
+                <span class="meter" style="width: {{ student.studentData.math.two_d_shapes / 5 * 100 }}%"></span>
               </div>
             </div>
           </li>
@@ -130,9 +130,9 @@
                 <span ng-hide="student.edit == true">{{ student.studentData.math.three_d_shapes }}</span>
                 <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.math.three_d_shapes" name="name" value="">
               </p>
-              {{ student.studentData.math.three_d_shapes / 36 * 100 | number : 0 }}%
+              {{ student.studentData.math.three_d_shapes / 4 * 100 | number : 0 }}%
               <div class="progress success radius">
-                <span class="meter" style="width: {{ student.studentData.math.three_d_shapes / 36 * 100 }}%"></span>
+                <span class="meter" style="width: {{ student.studentData.math.three_d_shapes / 4 * 100 }}%"></span>
               </div>
             </div>
           </li>
@@ -143,9 +143,9 @@
                 <span ng-hide="student.edit == true">{{ student.studentData.math.one_less }}</span>
                 <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.math.one_less" name="name" value="">
               </p>
-              {{ student.studentData.math.one_less / 100 * 100 | number : 0}}%
+              {{ student.studentData.math.one_less / 22 * 100 | number : 0}}%
               <div class="progress success radius">
-                <span class="meter" style="width: {{ student.studentData.math.one_less / 100 * 100 }}%"></span>
+                <span class="meter" style="width: {{ student.studentData.math.one_less / 22 * 100 }}%"></span>
               </div>
             </div>
           </li>
@@ -156,9 +156,9 @@
                 <span ng-hide="student.edit == true">{{ student.studentData.math.one_more }}</span>
                 <input class="text-center" ng-show="student.edit == true" type="text" ng-model="student.studentData.math.one_more" name="name" value="">
               </p>
-              {{ student.studentData.math.one_more / 100 * 100 | number : 0 }}%
+              {{ student.studentData.math.one_more / 22 * 100 | number : 0 }}%
               <div class="progress success radius">
-                <span class="meter" style="width: {{ student.studentData.math.one_more / 100 * 100 }}%"></span>
+                <span class="meter" style="width: {{ student.studentData.math.one_more / 22 * 100 }}%"></span>
               </div>
             </div>
           </li>

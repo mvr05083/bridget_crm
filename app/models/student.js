@@ -21,7 +21,9 @@ var StudentSchema = new Schema({
 	ela 				: {
 		letters : Number,
 		Sounds 	: Number,
-		reading_level : String
+		reading_level : String,
+		k_sight_words : Number,
+		f_sight_words : Number
 	},
 	comments : [{ type: Schema.Types.ObjectId, ref: "Comment"}]
 });
