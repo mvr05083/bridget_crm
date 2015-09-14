@@ -10,6 +10,12 @@ angular.module('userApp', [
   'ui.bootstrap'
 ])
 
-.config(function($httpProvider) {
+.config(function($httpProvider, ChartJsProvider) {
   $httpProvider.interceptors.push('AuthInterceptor');
+
+  ChartJsProvider.setOptions({
+    scaleSteps: 10,
+    scaleStepWidth: 10,
+    scaleStartValue: 0
+  })
 });

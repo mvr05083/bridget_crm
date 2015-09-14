@@ -15,16 +15,23 @@
         <button ng-click="student.toggleEdit()" class="button secondary expand radius" type="button" name="button">Edit</button>
       </li>
     </ul>
+    <canvas id="radar" class="chart chart-radar" chart-series="student.series"
+      chart-data="student.data" chart-labels="student.labels">
+    </canvas>
   </aside>
 
 
   <main class="columns medium-9">
+
     <ul class="button-group text-center even-3">
       <li><a href="students/{{ student.student_id }}/math" class="button small radius">Math <i class="fa fa-calculator"></i></a></li>
       <li><a href="students/{{ student.student_id }}/ela" class="button small radius">ELA <i class="fa fa-book"></i></a></li>
       <li><a href="students/{{ student.student_id }}/comment" class="button small radius">Comments <i class="fa fa-comments"></i></a></li>
     </ul>
 
+    <canvas id="radar" class="chart chart-line"
+      chart-data="student.data" chart-labels="student.labels" chart-options="{scaleSteps : 100,scaleStepWidth : 10,scaleStartValue : 0}">
+    </canvas>
     <!-- MATH -->
     <div class="small-12">
       <form class="" ng-submit="student.saveStudent()">

@@ -1,4 +1,4 @@
-angular.module('studentCtrl', [])
+angular.module('studentCtrl', ["chart.js"])
 
 .controller('studentController', function(Student) {
 
@@ -64,9 +64,31 @@ angular.module('studentCtrl', [])
   vm.edit = false;
   vm.student_id = $routeParams.student_id;
 
+  vm.labels =["ROTE", "Num Obj", "Fluent", "Patterns", "Num Id", "Thinking", "2D", "3D", "1 More", "1 Less"];
+
   Student.get($routeParams.student_id)
     .success(function(data) {
       vm.studentData = data.message;
+      vm.options = {
+        scaleSteps : 10,
+        scaleStepWidth : 10,
+        scaleStartValue : 0
+      };
+      vm.data = [
+        [
+          data.message.math.rote / 120 * 100,
+          data.message.math.num_objects / 52 * 100,
+          data.message.math.fluent_to / 52 * 100,
+          data.message.math.patterns / 52 * 100,
+          data.message.math.num_id / 52 * 100,
+          data.message.math.thinking / 21 * 100,
+          data.message.math.two_d_shapes / 5 * 100,
+          data.message.math.three_d_shapes / 4 * 100,
+          data.message.math.one_more / 5 * 100,
+          data.message.math.one_less / 5 * 100
+        ]
+      ];
+      vm.series = data.message.name;
     });
 
   vm.toggleEdit = function() {
