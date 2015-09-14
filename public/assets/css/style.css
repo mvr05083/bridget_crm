@@ -1,85 +1,26 @@
+/* Sticky footer styles
+-------------------------------------------------- */
 html {
   overflow-y: scroll;
-  height: 100%;
+  height: auto;
+  position: relative;
+  min-height: 100%;
 }
 body {
+  /* Margin bottom by footer height */
   background: #F9F9F9;
-  height: 100%;
-  /*margin-bottom:-300px;*/
+  margin-bottom: 60px;
+  position: initial;
 }
-main {
-  min-height: 100%;
-  height: auto !important;
-  /*height: 100%;*/
-  margin: 0 auto -175px;
-}
-footer, .push {
-  height: 250px;
-}
-@media (max-height:800px) {
-  main {
-    margin-bottom: 100px;
-  }
-  footer {
-    position: static;
-  }
-  header {
-    padding-top: 40px;
-  }
-}
-.footer-basic-centered {
-  background-color: #FF781D;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-  box-sizing: border-box;
+footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  text-align: center;
-  font: normal 18px sans-serif;
-  padding: 10px;
-  margin-top: 80px;
-}
-.footer-basic-centered .footer-company-motto {
-  color: #000;
-  font-size: 24px;
-  margin: 0;
-}
-.footer-basic-centered .footer-company-name {
-  color: #000;
-  font-size: 14px;
-  margin: 0;
-}
-.footer-basic-centered .footer-links {
-  list-style: none;
-  font-weight: bold;
-  color: #ffffff;
-  padding: 35px 0 23px;
-  margin: 0;
-}
-.footer-basic-centered .footer-links a {
-  display: inline-block;
-  text-decoration: none;
-  color: inherit;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #4C89BB;
 }
 
-/* If you don't want the footer to be responsive, remove these media queries */
-
-@media (max-width: 600px) {
-  .footer-basic-centered {
-    padding: 35px;
-  }
-  .footer-basic-centered .footer-company-motto {
-    font-size: 18px;
-  }
-  .footer-basic-centered .footer-company-name {
-    font-size: 12px;
-  }
-  .footer-basic-centered .footer-links {
-    font-size: 14px;
-    padding: 25px 0 20px;
-  }
-  .footer-basic-centered .footer-links a {
-    line-height: 1.8;
-  }
-}
 .button {
   padding: 1rem 1rem 1.0625rem 1rem;
 }
@@ -121,43 +62,7 @@ footer, .push {
 .full-width {
   max-width: 1400px;
 }
-.footer {
-  background-color: #2980b9;
-  padding: 2rem 4rem;
-  text-align: center;
-  color: #fff;
-}
-.footer i {
-  font-size: 100px;
-}
-.footer h4 {
-  color: #fff;
-  font-size: 1em;
-  font-weight: 400;
-  text-transform: uppercase;
-  margin-top: 2.5rem;
-  margin-bottom: 10px;
-}
-.footer p, .footer a {
-  font-weight: 300;
-  font-size: .8em;
-  color: #fff;
-}
-@media only screen and (min-width: 40.063em) {
-  .footer .columns:nth-child(n+2) {
-    border-left: 1px solid #b3b3b3;
-    min-height: 280px;
-  }
-}
-.footer-links {
-  list-style-type: none;
-}
-.footer-links li {
-  margin-top: .5em;
-}
-#content-views {
-  position: relative
-}
+
 .ng-enter, .ng-leave {
   width: 100%;
   position: absolute;

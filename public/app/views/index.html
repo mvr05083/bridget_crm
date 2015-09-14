@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Student CRM</title>
+	<title>BSIS</title>
 	<!--	set the base path for angular routing	-->
 	<base href="/">
 	<link rel="stylesheet" href="assets/css/foundation.min.css">
+	<link rel="stylesheet" href="assets/css/boostrap.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/animate.css">
 	<link rel="stylesheet" href="assets/css/angular-datepicker.min.css">
@@ -17,6 +18,10 @@
 	<script src="assets/js/angular-route.js"></script>
 	<script src="assets/js/angular-animate.js"></script>
 	<script src="assets/js/angular-datepicker.min.js"></script>
+	<!-- Required to use charts within angular -->
+	<script src="assets/js/Chart.js"></script>
+	<script src="assets/js/angular-chart.js"></script>
+	<script src="assets/js/ui-bootstrap.min.js"></script>
 
 	<!--Controllers-->
 	<script src="app/controllers/mainCtrl.js"></script>
@@ -35,7 +40,7 @@
 
 </head>
 
-<body class="container" ng-app="userApp" ng-controller="mainController as main">
+<body ng-app="userApp" ng-controller="mainController as main">
 	<header class="contain-to-grid">
 		<nav class="top-bar" data-topbar role="navigation">
 			<ul class="title-area">
@@ -73,36 +78,17 @@
 	<main class="container">
 		<!-- ANGULAR VIEWS -->
 		<div ng-view></div>
-		<div class="push"></div>
 	</main>
 
 
 	<!-- Footer -->
-	<footer class="footer-basic-centered">
-
-		<p class="footer-company-motto">The company motto.</p>
-
-		<p class="footer-links">
-			<a href="#">Home</a>
-			·
-			<a href="#">Blog</a>
-			·
-			<a href="#">Pricing</a>
-			·
-			<a href="#">About</a>
-			·
-			<a href="#">Faq</a>
-			·
-			<a href="#">Contact</a>
-		</p>
-
-		<p class="footer-company-name">Company Name &copy; 2015</p>
-
+	<footer class="text-center">
+		<p class="footer-company-name">MKD &copy; 2015</p>
 	</footer>
 
-		<script src="app/assets/js/vendor/jquery.js"></script>
-		<script src="app/assets/js/foundation.min.js"></script>
-		<script src="app/assets/js/foundation/foundation.topbar.js"></script>
+	<script src="app/assets/js/vendor/jquery.js"></script>
+	<script src="app/assets/js/foundation.min.js"></script>
+	<script src="app/assets/js/foundation/foundation.topbar.js"></script>
 </body>
 
 </html>

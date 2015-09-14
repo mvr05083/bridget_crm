@@ -11,7 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.4.5",
+    "angular-bootstrap": "^0.12.2",
+    "angular-chart.js": "^0.8.3",
+    "angular-ui-bootstrap": "^0.13.4",
     "angularjs-datepicker": "^0.2.9",
+    "bootstrap": "^3.3.5",
     "express": "^4.13.3",
     "jsonwebtoken": "^5.0.5",
     "mongoose": "^4.1.2"

@@ -6,7 +6,8 @@ angular.module('userApp', [
   'studentCtrl',
   'studentService',
   '720kb.datepicker',
-  'ageFilter'
+  'ageFilter',
+  'ui.bootstrap'
 ])
 
 .config(function($httpProvider) {
