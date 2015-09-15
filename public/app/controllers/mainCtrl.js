@@ -1,8 +1,8 @@
-angular.module('mainCtrl', ["chart.js"])
+angular.module('mainCtrl', ["chart.js", "ui.bootstrap.collapse", "ui.bootstrap.dropdown"])
 
 .controller('mainController', function($rootScope, $location, Auth) {
   var vm = this;
-
+  vm.navbarCollapsed = true;
   //chart information
   vm.labels = ["January", "February", "March", "April", "May", "June", "July"];
   vm.series = ['Series A', 'Series B'];

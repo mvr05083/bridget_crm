@@ -21,6 +21,16 @@ footer {
   background-color: #4C89BB;
 }
 
+.nav-span{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: block;
+}
+.nav-span a{
+  text-decoration: none;
+  color : #777;
+}
+
 .button {
   padding: 1rem 1rem 1.0625rem 1rem;
 }

@@ -7,7 +7,7 @@ angular.module('userApp', [
   'studentService',
   '720kb.datepicker',
   'ageFilter',
-  'ui.bootstrap'
+  'ui.bootstrap.tpls'
 ])
 
 .config(function($httpProvider, ChartJsProvider) {

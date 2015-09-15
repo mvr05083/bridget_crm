@@ -5,14 +5,13 @@
     <label>Name:
       <input class="radius" type="text" ng-model="student.studentData.name" name="name" value="" required>
     </label>
-    <label>Date of birth:
-      <datepicker>
-        <input class="radius" ng-model="student.studentData.dob" type="text" required/>
-      </datepicker>
-    </label>
-    <datepicker date-min-limit="2014/08/11" date-max-limit="2018/07/14">
-  <input ng-model="date" type="text"/>
-</datepicker>
+    <div class="">
+      <label>Date of birth:
+        <datepicker>
+          <input class="radius" ng-model="student.studentData.dob" type="text" required/>
+        </datepicker>
+      </label>
+    </div>
     <button type="submit" class="button radius alert" name="button">Add Student</button>
     <div class="columns radius alert-box success" ng-show="student.message">
       {{ student.message }}

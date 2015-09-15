@@ -13,15 +13,14 @@ module.exports = function(app, express){
 			if(err){
 				res.status(500).json(err);
 			}
-			console.log(students);
-			if(students.length == 0) {
-				res.json("There are no students!");
+			if(students.length === 0) {
+				res.json({success : false});
+			} else {
+				// Return data if no errors
+				res.json(students);
 			}
 
-			// Return data if no errors 
-			res.json({
-				success : true,
-				message : students});
+
 		})
 	})
 
@@ -64,12 +63,14 @@ module.exports = function(app, express){
 		Student.findOne({ _id: req.params.student_id })
 		.populate('comments')
 		.exec(function(err, student){
-			if(err) console.log(err);
+			if(err) res.json({success: false, message : err});
 
-			res.json({
-				success : true,
-				message : student
-			});
+			if(student){
+				res.json({
+					success : true,
+					message : student
+				});
+			}
 		});
 	});
 

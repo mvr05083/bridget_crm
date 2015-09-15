@@ -9,10 +9,10 @@ angular.module('studentCtrl', ["chart.js"])
   Student.all()
     .success(function(data) {
       vm.processing = false;
-      if (data.length > 0) {
+      if (data.success != false) {
         vm.students = data;
       } else {
-        vm.students = [];
+        vm.students = false;
       }
     });
 
@@ -34,7 +34,7 @@ angular.module('studentCtrl', ["chart.js"])
 
 })
 
-.controller('studentCreateController', function(Student) {
+.controller('studentCreateController', function(Student, $templateCache) {
 
   var vm = this;
 
@@ -47,7 +47,6 @@ angular.module('studentCtrl', ["chart.js"])
 
     vm.message = '';
 
-    console.log(vm.studentData);
     Student.create(vm.studentData)
       .success(function(data) {
         vm.processing = false;
@@ -64,55 +63,20 @@ angular.module('studentCtrl', ["chart.js"])
   vm.edit = false;
   vm.student_id = $routeParams.student_id;
 
-  vm.labels =["ROTE", "Num Obj", "Fluent", "Patterns", "Num Id", "Thinking", "2D", "3D", "1 More", "1 Less"];
+  vm.labels = ["ROTE", "Num Obj", "Fluent", "Patterns", "Num Id", "Thinking", "2D", "3D", "1 More", "1 Less"];
+  vm.data = [
+    [
+      46,27,71,98,11,30,89,100,82,68
+    ],
+    [
+      66,80,36,31,83,67,23,72,7,98
+    ]
+  ];
 
   Student.get($routeParams.student_id)
     .success(function(data) {
       vm.studentData = data.message;
-      vm.options = {
-        scaleSteps : 10,
-        scaleStepWidth : 10,
-        scaleStartValue : 0
-      };
-      vm.data = [
-        [
-          data.message.math.rote / 120 * 100,
-          data.message.math.num_objects / 52 * 100,
-          data.message.math.fluent_to / 52 * 100,
-          56,
-          data.message.math.num_id / 52 * 100,
-          data.message.math.thinking / 21 * 100,
-          data.message.math.two_d_shapes / 5 * 100,
-          data.message.math.three_d_shapes / 4 * 100,
-          data.message.math.one_more / 5 * 100,
-          data.message.math.one_less / 5 * 100
-        ],
-        [
-          data.message.math.rote / 130 * 100,
-          data.message.math.num_objects / 72 * 100,
-          data.message.math.fluent_to / 5 * 100,
-          data.message.math.patterns / 22 * 100,
-          75,
-          62,
-          data.message.math.two_d_shapes / 45 * 100,
-          data.message.math.three_d_shapes / 24 * 100,
-          data.message.math.one_more / 15 * 100,
-          data.message.math.one_less / 51 * 100
-        ],
-        [
-          3,
-          40,
-          25,
-          7,
-          11,
-          15,
-          55,
-          98,
-          72,
-          45
-        ]
-      ];
-      vm.series = data.message.name;
+      vm.series = [data.message.name, data.message.name];
     });
 
   vm.toggleEdit = function() {
