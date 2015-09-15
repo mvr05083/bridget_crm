@@ -12,7 +12,7 @@ angular.module('studentCtrl', ["chart.js"])
       if (data.length > 0) {
         vm.students = data;
       } else {
-        vm.students = false;
+        vm.students = [];
       }
     });
 
@@ -79,13 +79,37 @@ angular.module('studentCtrl', ["chart.js"])
           data.message.math.rote / 120 * 100,
           data.message.math.num_objects / 52 * 100,
           data.message.math.fluent_to / 52 * 100,
-          data.message.math.patterns / 52 * 100,
+          56,
           data.message.math.num_id / 52 * 100,
           data.message.math.thinking / 21 * 100,
           data.message.math.two_d_shapes / 5 * 100,
           data.message.math.three_d_shapes / 4 * 100,
           data.message.math.one_more / 5 * 100,
           data.message.math.one_less / 5 * 100
+        ],
+        [
+          data.message.math.rote / 130 * 100,
+          data.message.math.num_objects / 72 * 100,
+          data.message.math.fluent_to / 5 * 100,
+          data.message.math.patterns / 22 * 100,
+          75,
+          62,
+          data.message.math.two_d_shapes / 45 * 100,
+          data.message.math.three_d_shapes / 24 * 100,
+          data.message.math.one_more / 15 * 100,
+          data.message.math.one_less / 51 * 100
+        ],
+        [
+          3,
+          40,
+          25,
+          7,
+          11,
+          15,
+          55,
+          98,
+          72,
+          45
         ]
       ];
       vm.series = data.message.name;

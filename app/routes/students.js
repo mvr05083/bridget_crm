@@ -13,13 +13,15 @@ module.exports = function(app, express){
 			if(err){
 				res.status(500).json(err);
 			}
-
+			console.log(students);
 			if(students.length == 0) {
 				res.json("There are no students!");
 			}
 
-			// Return data if no errors
-			res.json(students);
+			// Return data if no errors 
+			res.json({
+				success : true,
+				message : students});
 		})
 	})
 

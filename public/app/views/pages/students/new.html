@@ -10,6 +10,9 @@
         <input class="radius" ng-model="student.studentData.dob" type="text" required/>
       </datepicker>
     </label>
+    <datepicker date-min-limit="2014/08/11" date-max-limit="2018/07/14">
+  <input ng-model="date" type="text"/>
+</datepicker>
     <button type="submit" class="button radius alert" name="button">Add Student</button>
     <div class="columns radius alert-box success" ng-show="student.message">
       {{ student.message }}

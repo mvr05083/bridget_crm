@@ -11,6 +11,28 @@ module.exports = function(app, express){
 	// - Needs to be first so that all api
 	//   URIs are protected
 	// =====================
+	apiRouter.route('/users')
+		.post(function(req,res){
+			var user = new User({
+				name : req.body.name,
+				username : req.body.username,
+				password : req.body.password
+			});
+
+			user.save(function(err){
+				if(err){
+					if(err.code == 11000){
+						res.json({ success : false, message : "A user with that username already exists" });
+					} else {
+						res.json({ success : false, message : err });
+					}
+				}
+
+				res.json({ success: true, message: 'User created!' });
+
+			});
+		})
+		
 	apiRouter.route('/authenticate')
 		.post(function(req, res){
 			User.findOne({
